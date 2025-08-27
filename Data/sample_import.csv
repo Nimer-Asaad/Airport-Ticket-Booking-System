@@ -1,0 +1,4 @@
+﻿Code,DepartureCountry,DestinationCountry,DepartureAirport,ArrivalAirport,DepartureUtc,ArrivalUtc,EconomyPrice,BusinessPrice,FirstPrice,EconomySeats,BusinessSeats,FirstSeats
+RJ201,Jordan,UAE,AMM,DXB,2025-10-01T08:00:00Z,2025-10-01T11:00:00Z,190,560,990,120,18,8
+TK777,Jordan,Turkey,AMM,IST,2025-11-15T13:00:00Z,2025-11-15T16:00:00Z,230,380,540,140,24,8
+BAD01,Jordan,UAE,AMM,DXB,2025-05-01T08:00:00Z,2025-05-01T07:00:00Z,0,-1,500,100,10,5

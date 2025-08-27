@@ -72,3 +72,34 @@ else
 {
     Console.WriteLine("No passenger/flight found. Make sure seeding created initial data.");
 }
+
+
+// ===== Manager: Import flights from CSV =====
+var importer = new CsvFlightImporter(flightRepo);
+var csvPath = Path.Combine(AppContext.BaseDirectory, "sample_import.csv"); // عدّل المسار حسب مكان الملف
+if (File.Exists(csvPath))
+{
+    var importResult = importer.Import(csvPath);
+    Console.WriteLine($"\n== CSV Import ==");
+    Console.WriteLine($"Inserted: {importResult.Inserted}");
+    if (importResult.HasErrors)
+    {
+        Console.WriteLine("Errors:");
+        foreach (var e in importResult.Errors)
+            Console.WriteLine($"  Row {e.Row} | {e.Field}: {e.Message}");
+    }
+}
+else
+{
+    Console.WriteLine("\n(sample_import.csv not found — skip import test)");
+}
+
+// ===== Manager: Dynamic validation details =====
+Console.WriteLine("\n== Flight Model Validation Details ==");
+var details = ManagerService.DescribeFlightModel();
+foreach (var d in details)
+{
+    Console.WriteLine($"- {d.Field}");
+    Console.WriteLine($"  Type: {d.Type}");
+    Console.WriteLine($"  Constraints: {string.Join(", ", d.Constraints)}");
+}
