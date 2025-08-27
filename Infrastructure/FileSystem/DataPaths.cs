@@ -10,10 +10,18 @@ public sealed class DataPaths
 
     public DataPaths(AppSettings settings, string? baseDir = null)
     {
-        baseDir ??= AppContext.BaseDirectory;
+        // ✅ خليك دايمًا على مجلد المشروع (…/Airport-Ticket-Booking-System/)
+        // إذا وجد Data جنب السوليوشن استعمله، وإلا ارجع لـ BaseDirectory
+        var projectRoot = System.IO.Path.GetFullPath(
+            System.IO.Path.Combine(AppContext.BaseDirectory, "..", "..", ".."));
 
-        Flights = Path.Combine(baseDir, settings.DataFiles.Flights);
-        Bookings = Path.Combine(baseDir, settings.DataFiles.Bookings);
-        Passengers = Path.Combine(baseDir, settings.DataFiles.Passengers);
+        var preferProjectData = System.IO.Directory.Exists(
+            System.IO.Path.Combine(projectRoot, "Data"));
+
+        var root = preferProjectData ? projectRoot : AppContext.BaseDirectory;
+
+        Flights = System.IO.Path.Combine(root, settings.DataFiles.Flights);
+        Bookings = System.IO.Path.Combine(root, settings.DataFiles.Bookings);
+        Passengers = System.IO.Path.Combine(root, settings.DataFiles.Passengers);
     }
 }

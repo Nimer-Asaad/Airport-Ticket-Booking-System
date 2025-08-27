@@ -1,1 +1,32 @@
-﻿[]
+[
+  {
+    "id": "e19ba93f-bcf8-4c64-b453-860990aca04d",
+    "flightCode": "RJ101",
+    "passengerId": "5d1e1b5d-3a5f-4a18-a5c8-3c7f6a5f8a11",
+    "seatClass": 2,
+    "seatCount": 2,
+    "totalPrice": 1080.0,
+    "createdAtUtc": "2025-08-27T07:57:56.9134517Z",
+    "status": 1
+  },
+  {
+    "id": "2d48e14d-64ab-4ebf-a1fa-3187e3f329b3",
+    "flightCode": "RJ101",
+    "passengerId": "c2f5d9c6-7b2a-4a1e-9e2a-0a7c4b2d9f33",
+    "seatClass": 2,
+    "seatCount": 3,
+    "totalPrice": 1620.0,
+    "createdAtUtc": "2025-08-27T08:12:54.9595471Z",
+    "status": 2
+  },
+  {
+    "id": "afdbe7eb-d4fd-49f2-8dc0-8471135d67f1",
+    "flightCode": "RJ101",
+    "passengerId": "c2f5d9c6-7b2a-4a1e-9e2a-0a7c4b2d9f33",
+    "seatClass": 1,
+    "seatCount": 2,
+    "totalPrice": 360.0,
+    "createdAtUtc": "2025-08-27T08:18:16.4808207Z",
+    "status": 1
+  }
+]

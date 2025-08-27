@@ -5,13 +5,14 @@ namespace AirportTicketBooking.Shared.Helpers;
 public static class JsonFile
 {
     private static readonly object _lock = new();
-
+    
     private static readonly JsonSerializerOptions _opts = new()
     {
         WriteIndented = true,
         PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
-        PropertyNameCaseInsensitive = true   
+        PropertyNameCaseInsensitive = true    
     };
+
 
     public static List<T> ReadList<T>(string path)
     {
