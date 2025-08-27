@@ -1,1 +1,32 @@
-﻿[]
+﻿[
+  {
+    "Code": "RJ101",
+    "DepartureCountry": "Jordan",
+    "DestinationCountry": "UAE",
+    "DepartureAirport": "AMM",
+    "ArrivalAirport": "DXB",
+    "DepartureUtc": "2025-09-05T09:00:00Z",
+    "ArrivalUtc": "2025-09-05T12:00:00Z",
+    "EconomyPrice": 180.0,
+    "BusinessPrice": 540.0,
+    "FirstPrice": 980.0,
+    "EconomySeats": 120,
+    "BusinessSeats": 18,
+    "FirstSeats": 8
+  },
+  {
+    "Code": "TK900",
+    "DepartureCountry": "Jordan",
+    "DestinationCountry": "Turkey",
+    "DepartureAirport": "AMM",
+    "ArrivalAirport": "IST",
+    "DepartureUtc": "2025-09-15T13:00:00Z",
+    "ArrivalUtc": "2025-09-15T16:00:00Z",
+    "EconomyPrice": 220.0,
+    "BusinessPrice": 360.0,
+    "FirstPrice": 520.0,
+    "EconomySeats": 140,
+    "BusinessSeats": 24,
+    "FirstSeats": 8
+  }
+]

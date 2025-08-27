@@ -9,7 +9,8 @@ public static class JsonFile
     private static readonly JsonSerializerOptions _opts = new()
     {
         WriteIndented = true,
-        PropertyNamingPolicy = JsonNamingPolicy.CamelCase
+        PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+        PropertyNameCaseInsensitive = true   
     };
 
     public static List<T> ReadList<T>(string path)

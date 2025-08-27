@@ -1,1 +1,12 @@
-﻿[]
+﻿[
+  {
+    "Id": "5d1e1b5d-3a5f-4a18-a5c8-3c7f6a5f8a11",
+    "Name": "Test User",
+    "Email": "test@example.com"
+  },
+  {
+    "Id": "c2f5d9c6-7b2a-4a1e-9e2a-0a7c4b2d9f33",
+    "Name": "Nimer Asaad",
+    "Email": "nimer@example.com"
+  }
+]
