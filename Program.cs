@@ -103,3 +103,13 @@ foreach (var d in details)
     Console.WriteLine($"  Type: {d.Type}");
     Console.WriteLine($"  Constraints: {string.Join(", ", d.Constraints)}");
 }
+
+var managerBookingService = new ManagerBookingService(bookingRepo, flightRepo, passengerRepo);
+
+Console.WriteLine("\n== Manager Filter Test ==");
+var filtered = managerBookingService.Filter(new BookingFilterParams { Class = SeatClass.Economy });
+foreach (var (b, f, psg) in filtered)
+{
+    Console.WriteLine($"Booking {b.Id} | Flight {f.Code} {f.DepartureAirport}->{f.ArrivalAirport} | " +
+                      $"Passenger: {psg.Name} | {b.SeatClass} | {b.TotalPrice}$");
+}
