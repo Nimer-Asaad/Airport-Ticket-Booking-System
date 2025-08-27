@@ -36,3 +36,39 @@ var matches = flightService.Search(new FlightSearchParams
 Console.WriteLine($"Search results: {matches.Count}");
 foreach (var (f, price) in matches)
     Console.WriteLine($" - {f.Code} {f.DepartureAirport}->{f.ArrivalAirport} on {f.DepartureUtc:yyyy-MM-dd} | {price}$");
+
+var bookingService = new BookingService(flightRepo, passengerRepo, bookingRepo);
+
+var passenger = passengerRepo.GetAll().FirstOrDefault();
+var flight = flightRepo.GetAll().FirstOrDefault();
+
+if (passenger is not null && flight is not null)
+{
+    Console.WriteLine("\n== Booking smoke test ==");
+
+    var booking = bookingService.Book(new BookingRequest
+    {
+        PassengerId = passenger.Id,
+        FlightCode = flight.Code,
+        Class = SeatClass.Economy,
+        SeatCount = 2
+    });
+    Console.WriteLine($"Booked: {booking.Id} | {booking.FlightCode} | {booking.SeatClass} x{booking.SeatCount} → {booking.TotalPrice}$");
+
+    booking = bookingService.Modify(new ModifyBookingRequest
+    {
+        BookingId = booking.Id,
+        NewClass = SeatClass.Business
+    });
+    Console.WriteLine($"Modified: {booking.Id} | {booking.SeatClass} x{booking.SeatCount} → {booking.TotalPrice}$");
+
+    var mine = bookingService.GetMyBookings(passenger.Id);
+    Console.WriteLine($"My bookings: {mine.Count}");
+
+    var cancelled = bookingService.Cancel(booking.Id);
+    Console.WriteLine($"Cancelled? {cancelled}");
+}
+else
+{
+    Console.WriteLine("No passenger/flight found. Make sure seeding created initial data.");
+}
