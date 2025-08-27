@@ -9,7 +9,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Application\DTOs\" />
     <Folder Include="Domain\Enums\" />
     <Folder Include="Presentation\Menus\" />
     <Folder Include="Shared\Extensions\" />

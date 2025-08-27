@@ -1,7 +1,10 @@
-﻿using AirportTicketBooking.Shared.Helpers;
+﻿using AirportTicketBooking.Application.DTOs;
+using AirportTicketBooking.Application.Services;
+using AirportTicketBooking.Domain.Entities;
+using AirportTicketBooking.Domain.Enums;
 using AirportTicketBooking.Infrastructure.FileSystem;
 using AirportTicketBooking.Infrastructure.Repositories;
-using AirportTicketBooking.Domain.Entities;
+using AirportTicketBooking.Shared.Helpers;
 
 Console.OutputEncoding = System.Text.Encoding.UTF8;
 
@@ -20,3 +23,16 @@ Console.WriteLine("== Storage smoke test ==");
 Console.WriteLine($"Flights   : {flightRepo.GetAll().Count}");
 Console.WriteLine($"Passengers: {passengerRepo.GetAll().Count}");
 Console.WriteLine($"Bookings  : {bookingRepo.GetAll().Count}");
+
+
+var flightService = new FlightService(flightRepo);
+
+var matches = flightService.Search(new FlightSearchParams
+{
+    FromAirport = "AMM",
+    Class = SeatClass.Economy
+});
+
+Console.WriteLine($"Search results: {matches.Count}");
+foreach (var (f, price) in matches)
+    Console.WriteLine($" - {f.Code} {f.DepartureAirport}->{f.ArrivalAirport} on {f.DepartureUtc:yyyy-MM-dd} | {price}$");
